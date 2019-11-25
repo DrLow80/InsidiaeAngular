@@ -1,0 +1,36 @@
+<h1>Adventure Outline</h1>
+
+<div class="row">
+  <div class="col">
+    <p><strong>Title: </strong> {{ adventure.overview.title }}</p>
+  </div>
+  <div class="col">
+    <p><strong>Real World Date:</strong> {{ adventure.overview.date }}</p>
+  </div>
+</div>
+
+<p><strong>GM: </strong> {{ adventure.overview.gameMaster }}</p>
+
+<div class="row">
+  <div class="col">
+    <p><strong> Campaign Date: </strong> {{ adventure.overview.campaignDate }}</p>
+  </div>
+  <div class="col">
+    <p><strong>Campaign Episode #:</strong> {{ adventure.overview.episodeNumber }}</p>
+  </div>
+  <div class="col">
+    <p><strong>Origination Locale:</strong> {{ adventure.overview.originationLocale }}</p>
+  </div>
+</div>
+
+<p><strong>Adventure Theme:</strong> {{ adventure.overview.adventureTheme }}</p>
+
+<p><strong>Description:</strong> {{ adventure.overview.description }}</p>
+
+<button type="button" class="btn btn-primary" [routerLink]="['/adventure', adventure.id, 'overview']">Edit</button>
+
+<h1>Milieu Events</h1>
+
+<p><strong>Past Milieu Events</strong></p>
+<p><strong>Present Milieu Events</strong></p>
+<p><strong>Future Milieu Events</strong></p>

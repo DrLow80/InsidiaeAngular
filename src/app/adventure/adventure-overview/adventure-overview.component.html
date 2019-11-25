@@ -1,0 +1,86 @@
+<form (ngSubmit)="submit()" #adventureForm="ngForm" novalidate>
+  <div class="form-row">
+    <div class="form-group col-6">
+      <label> Adventure Title: </label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Adventure Title"
+        name="title"
+        [(ngModel)]="adventureOverview.title"
+      />
+    </div>
+    <div class="form-group col-6">
+      <label> Date: </label>
+      <input type="text" class="form-control" placeholder="Date" name="date" [(ngModel)]="adventureOverview.date" />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label> GM: </label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Game Master"
+      name="gameMaster"
+      [(ngModel)]="adventureOverview.gameMaster"
+    />
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-4">
+      <label> Campaign Date: </label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Campaign Date"
+        name="campaignDate"
+        [(ngModel)]="adventureOverview.campaignDate"
+      />
+    </div>
+    <div class="form-group col-4">
+      <label> Campaign Episode #: </label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Episode Number"
+        name="episodeNumber"
+        [(ngModel)]="adventureOverview.episodeNumber"
+      />
+    </div>
+    <div class="form-group col-4">
+      <label> Origination Locale: </label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Origination Locale"
+        name="originationLocale"
+        [(ngModel)]="adventureOverview.originationLocale"
+      />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label> Adventure Theme: </label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Adventure Theme"
+      name="adventureTheme"
+      [(ngModel)]="adventureOverview.adventureTheme"
+    />
+  </div>
+
+  <div class="form-group">
+    <label> Description: </label>
+    <textarea
+      autosize
+      class="form-control"
+      placeholder="Description"
+      name="description"
+      [(ngModel)]="adventureOverview.description"
+    ></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-success">Save</button>
+</form>
