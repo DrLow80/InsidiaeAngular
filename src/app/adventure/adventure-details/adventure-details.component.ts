@@ -27,4 +27,8 @@ export class AdventureDetailsComponent implements OnInit {
       this.adventure = x;
     });
   }
+
+  addMilieuEvent(test:string){
+    console.log('and '+ test);
+  }
 }

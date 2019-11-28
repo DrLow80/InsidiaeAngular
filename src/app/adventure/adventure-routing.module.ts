@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdventureComponent } from './adventure.component';
 import { AdventureDetailsComponent } from './adventure-details/adventure-details.component';
 import { AdventureOverviewComponent } from './adventure-overview/adventure-overview.component';
+import { MilieuEventComponent } from './milieu-event/milieu-event.component';
 
 const routes: Routes = [
   {
@@ -13,7 +14,8 @@ const routes: Routes = [
       {
         path: 'overview',
         component: AdventureOverviewComponent
-      }
+      },
+      { path: 'milieuEvent/:id', component: MilieuEventComponent }
     ]
   }
 ];
@@ -23,5 +25,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AdventureRoutingModule {
-  static components = [AdventureComponent, AdventureDetailsComponent, AdventureOverviewComponent];
+  static components = [AdventureComponent, AdventureDetailsComponent, AdventureOverviewComponent, MilieuEventComponent];
 }

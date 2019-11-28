@@ -32,5 +32,54 @@
 <h1>Milieu Events</h1>
 
 <p><strong>Past Milieu Events</strong></p>
+
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let milieuEvent of adventure.pastMilieuEvents">
+    <div class="row">
+      <div class="col">
+        {{milieuEvent.displayName}}
+      </div>
+      <div class="col">
+        <a href="#" class="float-right">edit</a>
+      </div>
+    </div>
+  </li>
+</ul>
+
+<button type="button" class="btn btn-primary" (click)="addMilieuEvent('test')">Add</button>
+
 <p><strong>Present Milieu Events</strong></p>
+
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let milieuEvent of adventure.presentMilieuEvents">
+    <div class="row">
+      <div class="col">
+        {{milieuEvent.displayName}}
+      </div>
+      <div class="col">
+        <a href="#" class="float-right">edit</a>
+      </div>
+    </div>
+
+  </li>
+</ul>
+
+
+<button type="button" class="btn btn-primary">Add</button>
+
 <p><strong>Future Milieu Events</strong></p>
+
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let milieuEvent of adventure.futureMilieuEvents">
+    <div class="row">
+      <div class="col">
+        {{milieuEvent.displayName}}
+      </div>
+      <div class="col">
+        <a href="#" class="float-right">edit</a>
+      </div>
+    </div>
+  </li>
+</ul>
+
+<button type="button" class="btn btn-primary">Add</button>
