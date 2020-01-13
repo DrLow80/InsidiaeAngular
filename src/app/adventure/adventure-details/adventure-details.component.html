@@ -31,55 +31,29 @@
 
 <h1>Milieu Events</h1>
 
-<p><strong>Past Milieu Events</strong></p>
+<app-simple-list
+  [title]="'Past Milieu Events'"
+  [items]="adventure.pastMilieuEvents"
+  (editItem)="editMiliueEvent($event)"
+  (addItem)="addMilieuEvent('past')"
+></app-simple-list>
 
-<ul class="list-group">
-  <li class="list-group-item" *ngFor="let milieuEvent of adventure.pastMilieuEvents">
-    <div class="row">
-      <div class="col">
-        {{milieuEvent.displayName}}
-      </div>
-      <div class="col">
-        <a href="#" class="float-right">edit</a>
-      </div>
-    </div>
-  </li>
-</ul>
+<app-simple-list
+  [title]="'Present Milieu Events'"
+  [items]="adventure.presentMilieuEvents"
+  (editItem)="editMiliueEvent($event)"
+  (addItem)="addMilieuEvent('present')"
+></app-simple-list>
 
-<button type="button" class="btn btn-primary" (click)="addMilieuEvent('test')">Add</button>
+<app-simple-list
+  [title]="'Future Milieu Events'"
+  [items]="adventure.futureMilieuEvents"
+  (editItem)="editMiliueEvent($event)"
+  (addItem)="addMilieuEvent('future')"
+></app-simple-list>
 
-<p><strong>Present Milieu Events</strong></p>
+<h1>Non Player Characters</h1>
 
-<ul class="list-group">
-  <li class="list-group-item" *ngFor="let milieuEvent of adventure.presentMilieuEvents">
-    <div class="row">
-      <div class="col">
-        {{milieuEvent.displayName}}
-      </div>
-      <div class="col">
-        <a href="#" class="float-right">edit</a>
-      </div>
-    </div>
-
-  </li>
-</ul>
-
-
-<button type="button" class="btn btn-primary">Add</button>
-
-<p><strong>Future Milieu Events</strong></p>
-
-<ul class="list-group">
-  <li class="list-group-item" *ngFor="let milieuEvent of adventure.futureMilieuEvents">
-    <div class="row">
-      <div class="col">
-        {{milieuEvent.displayName}}
-      </div>
-      <div class="col">
-        <a href="#" class="float-right">edit</a>
-      </div>
-    </div>
-  </li>
-</ul>
-
-<button type="button" class="btn btn-primary">Add</button>
+<app-simple-list [title]="'Major NPCs'" [items]="adventure.majorNonPlayerCharacters"></app-simple-list>
+<app-simple-list [title]="'Minor NPCs'" [items]="adventure.minorNonPlayerCharacters"></app-simple-list>
+<app-simple-list [title]="'Monster NPCs'" [items]="adventure.monsterNonPlayerCharacters"></app-simple-list>

@@ -8,10 +8,9 @@ import { IAdventure } from '../shared/interfaces';
   styleUrls: ['./adventures.component.scss']
 })
 export class AdventuresComponent implements OnInit {
-
   adventures: IAdventure[] = [];
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService) {}
 
   ngOnInit() {
     this.dataService.getAdventures().subscribe(x => {

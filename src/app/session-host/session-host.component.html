@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col">
+    <button class="btn btn-primary" (click)="selecedSession()">Session</button>
+    <p>Encounters</p>
+    <button
+      class="btn btn-primary"
+      *ngFor="let encounter of sessionViewModel.session.encounters"
+      (click)="selectedEncounter(encounter)"
+    >
+      {{ encounter.name }}
+    </button>
+  </div>
+  <div class="col">
+    <app-session *ngIf="showSession" [session]="sessionViewModel.session"></app-session>
+
+    <app-encounter *ngIf="showEncounter" [encounter]="encounterViewModel"></app-encounter>
+  </div>
+</div>

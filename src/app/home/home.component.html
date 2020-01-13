@@ -1,0 +1,43 @@
+<ngb-tabset>
+  <ngb-tab title="Sessions">
+    <ng-template ngbTabContent>
+      <div class="row">
+        <div class="col-3 mb-4">
+          <app-card> <button class="btn btn-primary" (click)="onAddSession()">+</button> </app-card>
+        </div>
+        <div class="col-3 mb-4" *ngFor="let session of sessions"><app-card [cardModel]="session | sessionCard"></app-card></div>
+      </div>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab title="Stories">
+    <ng-template ngbTabContent>
+      <div class="row">
+        <div class="col-3 mb-4" *ngFor="let story of stories"><app-card [cardModel]="story | storyCard"></app-card></div>
+      </div>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab title="Heros">
+    <ng-template ngbTabContent>
+      <p>
+        Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft
+        beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR.
+        Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit
+        sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical
+        culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus
+        tattooed echo park.
+      </p>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab title="Content">
+    <ng-template ngbTabContent>
+      <p>
+        Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft
+        beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR.
+        Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit
+        sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical
+        culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus
+        tattooed echo park.
+      </p>
+    </ng-template>
+  </ngb-tab>
+</ngb-tabset>

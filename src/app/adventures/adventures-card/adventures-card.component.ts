@@ -7,12 +7,9 @@ import { IAdventure } from 'src/app/shared/interfaces';
   styleUrls: ['./adventures-card.component.scss']
 })
 export class AdventuresCardComponent implements OnInit {
-
   @Input() adventures: IAdventure[] = [];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

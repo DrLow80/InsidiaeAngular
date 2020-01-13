@@ -3,10 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdventuresComponent } from './adventures.component';
 import { AdventuresCardComponent } from './adventures-card/adventures-card.component';
 
-
-const routes: Routes = [
-  { path: '', component: AdventuresComponent },
-];
+const routes: Routes = [{ path: '', component: AdventuresComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IAdventure, Empties } from 'src/app/shared/interfaces';
+import { IAdventure, Empties, IMilieuEvent } from 'src/app/shared/interfaces';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/core/services/data.service';
 
@@ -15,7 +15,7 @@ export class AdventureDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.parent.params.subscribe(x => {
-      const id = +x['id'];
+      const id = +x.id;
       if (id !== 0) {
         this.getAdventure(id);
       }
@@ -28,7 +28,26 @@ export class AdventureDetailsComponent implements OnInit {
     });
   }
 
-  addMilieuEvent(test:string){
-    console.log('and '+ test);
+  addMilieuEvent(type: string) {
+    const milieuEvent: IMilieuEvent = {
+      id: 0,
+      displayName: 'New Event'
+    };
+
+    let events = this.adventure.pastMilieuEvents;
+
+    if (type === 'present') {
+      events = this.adventure.presentMilieuEvents;
+    }
+
+    if (type === 'future') {
+      events = this.adventure.futureMilieuEvents;
+    }
+
+    events.push(milieuEvent);
+  }
+
+  editMiliueEvent(target) {
+    console.log(JSON.stringify(target));
   }
 }
