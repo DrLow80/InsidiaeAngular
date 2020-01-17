@@ -6,14 +6,8 @@ import { Empties, IEncounter } from '../interfaces';
   templateUrl: './encounter.component.html',
   styleUrls: ['./encounter.component.scss']
 })
-export class EncounterComponent implements OnInit {
+export class EncounterComponent {
   @Input() encounter: IEncounter = Empties.Encounter;
 
   constructor() {}
-
-  ngOnInit() {}
-
-  submit() {
-    console.log('would have saved encounter: ' + JSON.stringify(this.encounter));
-  }
 }
