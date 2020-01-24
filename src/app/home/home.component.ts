@@ -9,11 +9,46 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   sessions: ISession[] = [
-    { brief: 'test', date: new Date(), encounters: [], name: '', number: '' },
-    { brief: 'test', date: new Date(), encounters: [], name: '', number: '' },
-    { brief: 'test', date: new Date(), encounters: [], name: '', number: '' },
-    { brief: 'test', date: new Date(), encounters: [], name: '', number: '' },
-    { brief: 'test', date: new Date(), encounters: [], name: '', number: '' }
+    {
+      brief: 'test',
+      date: new Date(),
+      encounters: [],
+      name: '',
+      number: '',
+      id: 1
+    },
+    {
+      brief: 'test',
+      date: new Date(),
+      encounters: [],
+      name: '',
+      number: '',
+      id: 2
+    },
+    {
+      brief: 'test',
+      date: new Date(),
+      encounters: [],
+      name: '',
+      number: '',
+      id: 3
+    },
+    {
+      brief: 'test',
+      date: new Date(),
+      encounters: [],
+      name: '',
+      number: '',
+      id: 1
+    },
+    {
+      brief: 'test',
+      date: new Date(),
+      encounters: [],
+      name: '',
+      number: '',
+      id: 1
+    }
   ];
 
   stories: IStory[] = [

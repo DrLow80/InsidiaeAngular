@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionViewModel, DataService } from '../core/services/data.service';
 import { IEncounter } from '../shared/interfaces';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-session-host',
@@ -12,13 +13,22 @@ export class SessionHostComponent implements OnInit {
   current: any;
   encounterViewModel: any;
 
-  constructor(private dataService: DataService) {}
+  constructor(
+    private dataService: DataService,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-    this.dataService.getSessionViewModel('1').subscribe(x => {
-      this.sessionViewModel = x;
+    this.activatedRoute.parent.params.subscribe(x => {
+      const id = x.id;
 
-      this.selecedSession();
+      if (id) {
+        this.dataService.getSessionViewModel(id).subscribe(n => {
+          this.sessionViewModel = n;
+
+          this.selecedSession();
+        });
+      }
     });
   }
 

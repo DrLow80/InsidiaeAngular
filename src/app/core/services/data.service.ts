@@ -36,12 +36,36 @@ export class DataService {
     return {
       id: 1,
       overview: this.getRandomAdventureOverview(),
-      pastMilieuEvents: [this.getMilieuEvent(), this.getMilieuEvent(), this.getMilieuEvent()],
-      presentMilieuEvents: [this.getMilieuEvent(), this.getMilieuEvent(), this.getMilieuEvent()],
-      futureMilieuEvents: [this.getMilieuEvent(), this.getMilieuEvent(), this.getMilieuEvent()],
-      majorNonPlayerCharacters: [this.getNonPlayerCharacter(), this.getNonPlayerCharacter(), this.getNonPlayerCharacter()],
-      minorNonPlayerCharacters: [this.getNonPlayerCharacter(), this.getNonPlayerCharacter(), this.getNonPlayerCharacter()],
-      monsterNonPlayerCharacters: [this.getNonPlayerCharacter(), this.getNonPlayerCharacter(), this.getNonPlayerCharacter()]
+      pastMilieuEvents: [
+        this.getMilieuEvent(),
+        this.getMilieuEvent(),
+        this.getMilieuEvent()
+      ],
+      presentMilieuEvents: [
+        this.getMilieuEvent(),
+        this.getMilieuEvent(),
+        this.getMilieuEvent()
+      ],
+      futureMilieuEvents: [
+        this.getMilieuEvent(),
+        this.getMilieuEvent(),
+        this.getMilieuEvent()
+      ],
+      majorNonPlayerCharacters: [
+        this.getNonPlayerCharacter(),
+        this.getNonPlayerCharacter(),
+        this.getNonPlayerCharacter()
+      ],
+      minorNonPlayerCharacters: [
+        this.getNonPlayerCharacter(),
+        this.getNonPlayerCharacter(),
+        this.getNonPlayerCharacter()
+      ],
+      monsterNonPlayerCharacters: [
+        this.getNonPlayerCharacter(),
+        this.getNonPlayerCharacter(),
+        this.getNonPlayerCharacter()
+      ]
     };
   }
 
@@ -112,7 +136,8 @@ export class DataService {
       date: new Date(),
       encounters: this.getRandomList(1, 5, this.getRandomEncounter),
       name: this.getRandomLipsum(),
-      number: '1'
+      number: '1',
+      id: 1
     };
   }
 

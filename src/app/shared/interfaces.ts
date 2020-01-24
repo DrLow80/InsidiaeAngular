@@ -61,7 +61,8 @@ export class Empties {
       date: new Date(),
       encounters: [],
       name: '',
-      number: ''
+      number: '',
+      id: 1
     };
   }
 
@@ -79,6 +80,7 @@ export interface ISession {
   name: string;
   number: string;
   encounters: IEncounter[];
+  id: number;
 }
 
 export interface IStory {
