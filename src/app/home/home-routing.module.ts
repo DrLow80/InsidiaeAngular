@@ -9,5 +9,5 @@ const routes: Routes = [{ path: '', component: HomeComponent }];
   exports: [RouterModule]
 })
 export class HomeRoutingModule {
-  static components = [HomeComponent];
+  static Components = [HomeComponent];
 }

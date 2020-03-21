@@ -1,94 +1,53 @@
-export class Interfaces {}
-
-export interface IAdventure {
-  id: number;
-  overview: IAdventureOverview;
-  pastMilieuEvents: IMilieuEvent[];
-  presentMilieuEvents: IMilieuEvent[];
-  futureMilieuEvents: IMilieuEvent[];
-  majorNonPlayerCharacters: INonPlayerCharacter[];
-  minorNonPlayerCharacters: INonPlayerCharacter[];
-  monsterNonPlayerCharacters: INonPlayerCharacter[];
-}
-
-export interface IAdventureOverview {
-  title: string;
-  description: string;
-  date: string;
+export interface IOutline {
+  adventureTitle: string;
+  realWorldDate: string;
   gameMaster: string;
   campaignDate: string;
-  episodeNumber: string;
+  campaignEpisodeNumber: string;
   originationLocale: string;
   adventureTheme: string;
 }
 
 export interface IMilieuEvent {
-  id: number;
-  displayName: string;
+  description: string;
+  milieuEventType: string;
+  name: string;
+  milieuTimePeriod: string;
 }
 
 export interface INonPlayerCharacter {
-  id: string;
-  displayName: string;
-}
-
-export class Empties {
-  static get Adventure(): IAdventure {
-    return {
-      id: 0,
-      overview: {
-        description: '',
-        title: '',
-        date: '',
-        gameMaster: '',
-        campaignDate: '',
-        episodeNumber: '',
-        originationLocale: '',
-        adventureTheme: ''
-      },
-      pastMilieuEvents: [],
-      presentMilieuEvents: [],
-      futureMilieuEvents: [],
-      majorNonPlayerCharacters: [],
-      minorNonPlayerCharacters: [],
-      monsterNonPlayerCharacters: []
-    };
-  }
-
-  static get Session(): ISession {
-    return {
-      brief: '',
-      date: new Date(),
-      encounters: [],
-      name: '',
-      number: '',
-      id: 1
-    };
-  }
-
-  static get Encounter(): IEncounter {
-    return {
-      description: '',
-      name: ''
-    };
-  }
-}
-
-export interface ISession {
-  date: Date;
-  brief: string;
+  description: string;
+  storyRole: string;
   name: string;
-  number: string;
-  encounters: IEncounter[];
-  id: number;
-}
-
-export interface IStory {
-  title: string;
-  brief: string;
+  characterType: string;
 }
 
 export interface IEncounter {
-  name: string;
+  unboundTriggers: string;
+  boundTriggers: string;
   description: string;
+  location: string;
+  plotElement: string;
+  storyFunction: string;
+  encounterType: string;
+  name: string;
+}
+
+export interface IPlot {
+  index: number;
+  name: string;
+  plotPoints: IPlotPoint[];
+}
+
+export interface IPlotPoint {
+  index: number;
+  name: string;
+  encounter: IEncounter;
+}
+
+export interface IAdventure {
+  outline: IOutline;
+  milieuEvents: IMilieuEvent[];
+  nonPlayerCharacters: INonPlayerCharacter[];
+  plots: IPlot[];
 }

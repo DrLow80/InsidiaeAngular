@@ -1,0 +1,37 @@
+<form action="">
+  <div class="form-group">
+    <label for="name">Name</label><input type="text"
+           class="form-control"
+           id="name"
+           name="name"
+           [(ngModel)]="name" />
+  </div>
+  <div class="form-group">
+    <label for="milieuTimePeriod">Event Type</label>
+    <select name="milieuTimePeriod"
+            id="milieuTimePeriod"
+            [(ngModel)]="milieuTimePeriod"
+            class="form-control">
+      <option *ngFor="let milieuTimePeriod of milieuTimePeriods"
+              [value]="milieuTimePeriod">{{ milieuTimePeriod }}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="milieuEventType">Milieu Type</label>
+    <select class="form-control"
+            id="milieuEventType"
+            name="milieuEventType"
+            [(ngModel)]="milieuEventType">
+      <option *ngFor="let milieuEventType of milieuEventTypes"
+              [value]="milieuEventType">{{ milieuEventType }}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <input type="text"
+           class="form-control"
+           id="description"
+           name="description"
+           [(ngModel)]="description" />
+  </div>
+</form>
