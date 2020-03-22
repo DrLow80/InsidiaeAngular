@@ -1,0 +1,19 @@
+<div class="row mt-3">
+    <div class="col-3 mb-3" *ngFor="let adventure of adventures">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{adventure.title}}</h5>
+                <p class="card-text">{{adventure.summary}}</p>
+                <a [routerLink]="['/adventures', adventure.id, 'edit']">Open</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">New Adventure</h5>
+                <a [routerLink]="['/adventures', 0, 'edit']">Add</a>
+            </div>
+        </div>
+    </div>
+</div>

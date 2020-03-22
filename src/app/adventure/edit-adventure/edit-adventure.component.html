@@ -1,0 +1,126 @@
+<div class="card">
+    <div class="card-body">
+        <h2 class="card-title">
+            Adventure Outline
+        </h2>
+
+        <div class="row">
+            <div class="col">
+                <strong>Adventure Title:</strong> {{title}}
+            </div>
+
+            <div class="col">
+                <strong>Real world Date:</strong> {{adventureDate}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <strong>GM:</strong> {{gameMaster}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <strong>Campaign Date:</strong> {{campaignDate}}
+            </div>
+
+            <div class="col">
+                <strong>Campaign episode #:</strong> {{episodeNumber}}
+            </div>
+
+            <div class="col">
+                <strong>Origination Locale:</strong> {{originationLocale}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <strong>Adventure Theme:</strong> {{theme}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h2 class="card-title">
+            Milieu Events
+        </h2>
+
+        <div class="row">
+            <div class="col">
+                <strong>Past Milieu Events:</strong> {{pastMilieuEvents}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <strong>Present Milieu Events:</strong> {{presentMilieuEvents}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <strong>Future Milieu Events:</strong> {{futureMilieuEvents}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h2 class="card-title">
+            NPCs
+        </h2>
+
+        <strong>Major</strong>
+
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let nonPlayerCharacter of majorNonPlayerCharacters">
+                {{nonPlayerCharacter.name}}
+            </li>
+        </ul>
+
+        <strong>Minor</strong>
+
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let nonPlayerCharacter of minorNonPlayerCharacters">
+                {{nonPlayerCharacter.name}}
+
+            </li>
+        </ul>
+
+        <strong>Monster</strong>
+
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let nonPlayerCharacter of monsterNonPlayerCharacters">
+                {{nonPlayerCharacter.name}}
+
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h2 class="card-title">
+            Plot Points
+        </h2>
+
+        <ul class="list-group mb-3" *ngFor="let plotPoint of plotPoints">
+            <li class="list-group-item">
+                <strong>Act or Plot:</strong> {{plotPoint.title}}
+            </li>
+            <li class="list-group-item">
+                <strong>Inciting Incident:</strong> {{plotPoint.incitingIncident.title}}
+            </li>
+            <li class="list-group-item">
+                <strong>Endpoint:</strong> {{plotPoint.endPoint.title}}
+            </li>
+            <li class="list-group-item" *ngFor="let turningPoint of plotPoint.turningPoints">
+                <strong>Turning Point:</strong> {{turningPoint.title}}
+            </li>
+        </ul>
+    </div>
+</div>
