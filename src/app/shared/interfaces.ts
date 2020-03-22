@@ -96,3 +96,53 @@ export const PLOTPOINTS: IPlotPoint[] = [
     ]
   }
 ];
+
+export interface IMilieuEvent {
+  title: string;
+}
+
+export const MILIEUEVENTS: IMilieuEvent[] = [
+  {
+    title: 'Nulla'
+  },
+  {
+    title: 'Donec'
+  },
+  {
+    title: 'Aliquam'
+  }
+];
+
+export interface IEditAdventureVeiwModel {
+  title: string;
+  adventureDate: string;
+  gameMaster: string;
+  campaignDate: string;
+  episodeNumber: string;
+  originationLocale: string;
+  theme: string;
+  pastMilieuEvents: IMilieuEvent[];
+  presentMilieuEvents: IMilieuEvent[];
+  futureMilieuEvents: IMilieuEvent[];
+  majorNonPlayerCharacters: INonPlayerCharacter[];
+  minorNonPlayerCharacters: INonPlayerCharacter[];
+  monsterNonPlayerCharacters: INonPlayerCharacter[];
+  plotPoints: IPlotPoint[];
+}
+
+export const DEFAULTEDITADVENTUREVIEWMODEL: IEditAdventureVeiwModel = {
+  adventureDate: 'adventure Date',
+  campaignDate: 'campaign Date',
+  episodeNumber: 'episode Number',
+  futureMilieuEvents: MILIEUEVENTS,
+  gameMaster: 'game Master',
+  majorNonPlayerCharacters: NONPLAYERCHARACTERS,
+  minorNonPlayerCharacters: NONPLAYERCHARACTERS,
+  monsterNonPlayerCharacters: NONPLAYERCHARACTERS,
+  originationLocale: 'origination Locale',
+  pastMilieuEvents: MILIEUEVENTS,
+  plotPoints: PLOTPOINTS,
+  presentMilieuEvents: MILIEUEVENTS,
+  theme: 'theme',
+  title: 'title'
+};

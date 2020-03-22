@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { IAdventure, NONPLAYERCHARACTERS, INonPlayerCharacter, PLOTPOINTS, IPlotPoint } from 'src/app/shared/interfaces';
 import { ActivatedRoute, Params } from '@angular/router';
+import { IEditAdventureVeiwModel, DEFAULTEDITADVENTUREVIEWMODEL, IMilieuEvent, INonPlayerCharacter, IPlotPoint } from 'src/app/shared/interfaces';
+import { EditAdventureService } from './edit-adventure.service';
 
 @Component({
   selector: 'app-edit-adventure',
@@ -8,85 +9,72 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./edit-adventure.component.css']
 })
 export class EditAdventureComponent implements OnInit {
-  adventure: IAdventure = {
-    id: 0,
-    summary: '',
-    title: ''
-  };
-
-  constructor(private route: ActivatedRoute) {}
+  viewModel: IEditAdventureVeiwModel = DEFAULTEDITADVENTUREVIEWMODEL;
+  constructor(private route: ActivatedRoute, private service: EditAdventureService) {}
 
   ngOnInit() {
     this.route.parent.params.subscribe((params: Params) => {
       const id = +params.id;
 
-      if (id !== 0) {
-        this.getAdventure(id);
-      }
+      this.service.load(id).subscribe(x => {
+        this.viewModel = x;
+      });
     });
   }
 
-  getAdventure(id: number) {
-    this.adventure = {
-      id,
-      summary: 'summary',
-      title: 'title'
-    };
-  }
-
   get title(): string {
-    return 'title';
+    return this.viewModel.title;
   }
 
   get adventureDate(): string {
-    return 'adventureDate';
+    return this.viewModel.adventureDate;
   }
 
   get gameMaster(): string {
-    return 'game master';
+    return this.viewModel.gameMaster;
   }
 
   get campaignDate(): string {
-    return 'campaignDate';
+    return this.viewModel.campaignDate;
   }
 
   get episodeNumber(): string {
-    return 'episodeNumber';
+    return this.viewModel.episodeNumber;
   }
 
   get originationLocale(): string {
-    return 'originationLocale';
+    return this.viewModel.originationLocale;
   }
 
   get theme(): string {
-    return 'theme';
+    return this.viewModel.theme;
   }
 
-  get pastMilieuEvents(): string {
-    return 'pastMilieuEvents';
+  get pastMilieuEvents(): IMilieuEvent[] {
+    return this.viewModel.pastMilieuEvents;
   }
 
-  get presentMilieuEvents(): string {
-    return 'presentMilieuEvents';
+  get presentMilieuEvents(): IMilieuEvent[] {
+    return this.viewModel.presentMilieuEvents;
   }
 
-  get futureMilieuEvents(): string {
-    return 'futureMilieuEvents';
+  get futureMilieuEvents(): IMilieuEvent[] {
+    return this.viewModel.futureMilieuEvents;
   }
 
   get majorNonPlayerCharacters(): INonPlayerCharacter[] {
-    return NONPLAYERCHARACTERS;
+    return this.viewModel.majorNonPlayerCharacters;
   }
 
   get minorNonPlayerCharacters(): INonPlayerCharacter[] {
-    return NONPLAYERCHARACTERS;
+    return this.viewModel.minorNonPlayerCharacters;
   }
 
   get monsterNonPlayerCharacters(): INonPlayerCharacter[] {
-    return NONPLAYERCHARACTERS;
+    return this.viewModel.monsterNonPlayerCharacters;
   }
 
   get plotPoints(): IPlotPoint[] {
-    return PLOTPOINTS;
+    return this.viewModel.plotPoints;
   }
 }
