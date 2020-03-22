@@ -1,8 +1,16 @@
 <div class="card">
     <div class="card-body">
-        <h2 class="card-title">
-            Adventure Outline
-        </h2>
+        <div class="row">
+            <div class="col">
+                <h2 class="card-title">
+                    Adventure Outline
+                </h2>
+            </div>
+            <div class="col">
+                <button class="btn btn-primary float-sm-right">Edit</button>
+            </div>
+        </div>
+
 
         <div class="row">
             <div class="col"><strong>Adventure Title:</strong> {{ title }}</div>
@@ -36,35 +44,46 @@
 
         <div class="row">
             <div class="col">
-                <strong>Past Milieu Events:</strong>
+                <strong>Past</strong>
 
-                <ul class="list-group list-group-horizontal">
+                <ul class="list-group">
                     <li class="list-group-item" *ngFor="let milieuEvent of pastMilieuEvents">
-                        {{ milieuEvent.title }}
+                        <button class="btn btn-link">
+                            {{ milieuEvent.title }}
+                        </button>
+                    </li>
+                    <li class="list-group-item">
+                        <button class="btn btn-primary">Add</button>
                     </li>
                 </ul>
             </div>
-        </div>
 
-        <div class="row">
             <div class="col">
-                <strong>Present Milieu Events:</strong>
+                <strong>Present</strong>
 
-                <ul class="list-group list-group-horizontal">
+                <ul class="list-group">
                     <li class="list-group-item" *ngFor="let milieuEvent of presentMilieuEvents">
-                        {{ milieuEvent.title }}
+                        <button class="btn btn-link">
+                            {{ milieuEvent.title }}
+                        </button>
+                    </li>
+                    <li class="list-group-item">
+                        <button class="btn btn-primary">Add</button>
                     </li>
                 </ul>
             </div>
-        </div>
 
-        <div class="row">
             <div class="col">
-                <strong>Future Milieu Events:</strong>
+                <strong>Future</strong>
 
-                <ul class="list-group list-group-horizontal">
+                <ul class="list-group">
                     <li class="list-group-item" *ngFor="let milieuEvent of futureMilieuEvents">
-                        {{ milieuEvent.title }}
+                        <button class="btn btn-link">
+                            {{ milieuEvent.title }}
+                        </button>
+                    </li>
+                    <li class="list-group-item">
+                        <button class="btn btn-primary">Add</button>
                     </li>
                 </ul>
             </div>
@@ -84,7 +103,12 @@
 
                 <ul class="list-group">
                     <li class="list-group-item" *ngFor="let nonPlayerCharacter of majorNonPlayerCharacters">
-                        {{ nonPlayerCharacter.name }}
+                        <button class="btn btn-link">
+                            {{ nonPlayerCharacter.name }}
+                        </button>
+                    </li>
+                    <li class="list-group-item">
+                        <button class="btn btn-primary">Add</button>
                     </li>
                 </ul>
             </div>
@@ -93,7 +117,12 @@
 
                 <ul class="list-group">
                     <li class="list-group-item" *ngFor="let nonPlayerCharacter of minorNonPlayerCharacters">
-                        {{ nonPlayerCharacter.name }}
+                        <button class="btn btn-link">
+                            {{ nonPlayerCharacter.name }}
+                        </button>
+                    </li>
+                    <li class="list-group-item">
+                        <button class="btn btn-primary">Add</button>
                     </li>
                 </ul>
             </div>
@@ -102,7 +131,12 @@
 
                 <ul class="list-group">
                     <li class="list-group-item" *ngFor="let nonPlayerCharacter of monsterNonPlayerCharacters">
-                        {{ nonPlayerCharacter.name }}
+                        <button class="btn btn-link">
+                            {{ nonPlayerCharacter.name }}
+                        </button>
+                    </li>
+                    <li class="list-group-item">
+                        <button class="btn btn-primary">Add</button>
                     </li>
                 </ul>
             </div>
@@ -119,11 +153,34 @@
         <div class="row">
             <div class="col-6" *ngFor="let plotPoint of plotPoints">
                 <ul class="list-group mb-3">
-                    <li class="list-group-item"><strong>Act or Plot:</strong> {{ plotPoint.title }}</li>
-                    <li class="list-group-item"><strong>Inciting Incident:</strong> {{ plotPoint.incitingIncident.title }}</li>
-                    <li class="list-group-item"><strong>Endpoint:</strong> {{ plotPoint.endPoint.title }}</li>
-                    <li class="list-group-item" *ngFor="let turningPoint of plotPoint.turningPoints"><strong>Turning Point:</strong> {{ turningPoint.title }}</li>
+                    <li class="list-group-item">
+                        <strong>Act or Plot:</strong>
+                        <button class="btn btn-link">
+                            {{ plotPoint.title }}
+                        </button>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Inciting Incident:</strong>
+                        <button class="btn btn-link">
+                            {{ plotPoint.incitingIncident.title }}
+                        </button>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Endpoint:</strong>
+                        <button class="btn btn-link">
+                            {{ plotPoint.endPoint.title }}
+                        </button>
+                    </li>
+                    <li class="list-group-item" *ngFor="let turningPoint of plotPoint.turningPoints">
+                        <strong>Turning Point:</strong>
+                        <button class="btn btn-link">
+                            {{ turningPoint.title }}
+                        </button>
+                    </li>
                 </ul>
+            </div>
+            <div class="col-6">
+                <button class="btn btn-primary">Add</button>
             </div>
         </div>
     </div>
