@@ -7,7 +7,7 @@
                 </h2>
             </div>
             <div class="col">
-                <button class="btn btn-primary float-sm-right">Edit</button>
+                <button class="btn btn-primary float-sm-right" [routerLink]="['/adventures',id,'header']">Edit</button>
             </div>
         </div>
 
@@ -48,12 +48,14 @@
 
                 <ul class="list-group">
                     <li class="list-group-item" *ngFor="let milieuEvent of pastMilieuEvents">
-                        <button class="btn btn-link">
+                        <button class="btn btn-link" [routerLink]="['/adventures', id, 'milieuEvent', milieuEvent.id]"
+                            [queryParams]="{type:'past'}">
                             {{ milieuEvent.title }}
                         </button>
                     </li>
                     <li class="list-group-item">
-                        <button class="btn btn-primary">Add</button>
+                        <button class="btn btn-primary" [routerLink]="['/adventures', id, 'milieuEvent', 0]"
+                            [queryParams]="{type:'past'}">Add</button>
                     </li>
                 </ul>
             </div>
@@ -63,12 +65,14 @@
 
                 <ul class="list-group">
                     <li class="list-group-item" *ngFor="let milieuEvent of presentMilieuEvents">
-                        <button class="btn btn-link">
+                        <button class="btn btn-link" [routerLink]="['/adventures', id, 'milieuEvent', milieuEvent.id]"
+                            [queryParams]="{type:'present'}">
                             {{ milieuEvent.title }}
                         </button>
                     </li>
                     <li class="list-group-item">
-                        <button class="btn btn-primary">Add</button>
+                        <button class="btn btn-primary" [routerLink]="['/adventures', id, 'milieuEvent', 0]"
+                            [queryParams]="{type:'present'}">Add</button>
                     </li>
                 </ul>
             </div>
@@ -78,12 +82,14 @@
 
                 <ul class="list-group">
                     <li class="list-group-item" *ngFor="let milieuEvent of futureMilieuEvents">
-                        <button class="btn btn-link">
+                        <button class="btn btn-link" [routerLink]="['/adventures', id, 'milieuEvent', milieuEvent.id]"
+                            [queryParams]="{type:'future'}">
                             {{ milieuEvent.title }}
                         </button>
                     </li>
                     <li class="list-group-item">
-                        <button class="btn btn-primary">Add</button>
+                        <button class="btn btn-primary" [routerLink]="['/adventures', id, 'milieuEvent', 0]"
+                            [queryParams]="{type:'future'}">Add</button>
                     </li>
                 </ul>
             </div>

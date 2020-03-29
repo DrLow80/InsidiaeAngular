@@ -38,12 +38,27 @@ export const ADVENTURES: IAdventure[] = [
 ];
 
 export interface INonPlayerCharacter {
+  id: number;
   name: string;
 }
 
-export const NONPLAYERCHARACTERS: INonPlayerCharacter[] = [{ name: 'Lorem' }, { name: 'Pellentesque' }, { name: 'Vestibulum' }];
+export const NONPLAYERCHARACTERS: INonPlayerCharacter[] = [
+  {
+    id: 1,
+    name: 'Lorem'
+  },
+  {
+    id: 1,
+    name: 'Pellentesque'
+  },
+  {
+    id: 1,
+    name: 'Vestibulum'
+  }
+];
 
 export interface IPlotPoint {
+  id: number;
   title: string;
   incitingIncident: ITurningPoint;
   endPoint: ITurningPoint;
@@ -51,46 +66,59 @@ export interface IPlotPoint {
 }
 
 export interface ITurningPoint {
+  id: number;
   title: string;
 }
 
 export const PLOTPOINTS: IPlotPoint[] = [
   {
+    id: 1,
     endPoint: {
+      id: 1,
       title: 'Lorem'
     },
     incitingIncident: {
+      id: 1,
       title: 'Pellentesque'
     },
     title: 'Vestibulum',
     turningPoints: [
       {
+        id: 1,
         title: 'turningPoint1'
       },
       {
+        id: 1,
         title: 'turningPoint2'
       },
       {
+        id: 1,
         title: 'turningPoint3'
       }
     ]
   },
   {
+    id: 1,
     endPoint: {
+      id: 1,
       title: 'Proin'
     },
     incitingIncident: {
+      id: 1,
       title: 'Duis'
     },
     title: 'Nunc',
     turningPoints: [
       {
+        id: 1,
         title: 'turningPoint1'
       },
       {
+        id: 1,
         title: 'turningPoint2'
       },
       {
+        id: 1,
         title: 'turningPoint3'
       }
     ]
@@ -98,22 +126,27 @@ export const PLOTPOINTS: IPlotPoint[] = [
 ];
 
 export interface IMilieuEvent {
+  id: number;
   title: string;
 }
 
 export const MILIEUEVENTS: IMilieuEvent[] = [
   {
+    id: 1,
     title: 'Nulla'
   },
   {
+    id: 2,
     title: 'Donec'
   },
   {
+    id: 3,
     title: 'Aliquam'
   }
 ];
 
 export interface IEditAdventureVeiwModel {
+  id: number;
   title: string;
   adventureDate: string;
   gameMaster: string;
@@ -131,6 +164,7 @@ export interface IEditAdventureVeiwModel {
 }
 
 export const DEFAULTEDITADVENTUREVIEWMODEL: IEditAdventureVeiwModel = {
+  id: 1,
   adventureDate: 'adventure Date',
   campaignDate: 'campaign Date',
   episodeNumber: 'episode Number',
@@ -144,5 +178,19 @@ export const DEFAULTEDITADVENTUREVIEWMODEL: IEditAdventureVeiwModel = {
   plotPoints: PLOTPOINTS,
   presentMilieuEvents: MILIEUEVENTS,
   theme: 'theme',
-  title: 'title'
+  title: 'Lorem ipsum'
+};
+
+export interface IEditMilieuEventViewModel {
+  id: number;
+  title: string;
+  description: string;
+  type: string;
+}
+
+export const DEFAULTEDITMILIEUEVENTVIEWMODEL: IEditMilieuEventViewModel = {
+  id: 0,
+  title: 'title',
+  description: 'description',
+  type: 'present'
 };

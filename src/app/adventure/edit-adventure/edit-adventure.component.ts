@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { IEditAdventureVeiwModel, DEFAULTEDITADVENTUREVIEWMODEL, IMilieuEvent, INonPlayerCharacter, IPlotPoint } from 'src/app/shared/interfaces';
-import { EditAdventureService } from './edit-adventure.service';
+import {
+  IEditAdventureVeiwModel,
+  DEFAULTEDITADVENTUREVIEWMODEL,
+  IMilieuEvent,
+  INonPlayerCharacter,
+  IPlotPoint
+} from 'src/app/shared/interfaces';
+import { EditAdventureService } from '../edit-adventure.service';
 
 @Component({
   selector: 'app-edit-adventure',
@@ -20,6 +26,10 @@ export class EditAdventureComponent implements OnInit {
         this.viewModel = x;
       });
     });
+  }
+
+  get id(): number {
+    return this.viewModel.id;
   }
 
   get title(): string {
