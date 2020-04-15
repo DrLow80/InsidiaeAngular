@@ -12,14 +12,14 @@ const routes: Routes = [
     children: [
       { path: 'edit', component: EditAdventureComponent },
       { path: 'header', component: EditAdventureHeaderComponent },
-      { path: 'milieuEvent/:id', component: EditMilieuEventComponent }
-    ]
-  }
+      { path: 'milieuEvent/:mid', component: EditMilieuEventComponent },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AdventureRoutingModule {
   static Components = [AdventureComponent, EditAdventureComponent, EditAdventureHeaderComponent, EditMilieuEventComponent];

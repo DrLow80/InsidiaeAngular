@@ -1,0 +1,166 @@
+<div class="card" *ngIf="viewModel">
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <h2 class="card-title">
+          Story Outline
+        </h2>
+      </div>
+      <div class="col">
+        <button class="btn btn-primary float-sm-right" [routerLink]="['/story', id, 'header']">Edit</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col"><strong>Adventure Title:</strong> {{ title }}</div>
+
+      <div class="col"><strong>Real world Date:</strong> {{ adventureDate }}</div>
+    </div>
+
+    <div class="row">
+      <div class="col"><strong>GM:</strong> {{ gameMaster }}</div>
+    </div>
+
+    <div class="row">
+      <div class="col"><strong>Campaign Date:</strong> {{ campaignDate }}</div>
+
+      <div class="col"><strong>Campaign episode #:</strong> {{ episodeNumber }}</div>
+
+      <div class="col"><strong>Origination Locale:</strong> {{ originationLocale }}</div>
+    </div>
+
+    <div class="row">
+      <div class="col"><strong>Adventure Theme:</strong> {{ theme }}</div>
+    </div>
+  </div>
+</div>
+
+<div class="card" *ngIf="viewModel">
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <h2 class="card-title">
+          Milieu Events
+        </h2>
+      </div>
+
+      <div class="col">
+        <button class="btn btn-primary float-sm-right" (click)="addMilieuEvent()">Add</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <strong>Past</strong>
+
+        <ul class="list-group">
+          <li *ngFor="let m of pastMilieuEvents" class="list-group-item">
+            <a [routerLink]="['/story', id, 'milieu-event', m.id]">{{m.title}}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col">
+        <strong>Present</strong>
+
+        <ul class="list-group">
+          <li *ngFor="let m of presentMilieuEvents" class="list-group-item">
+            <a [routerLink]="['/story', id, 'milieu-event', m.id]">{{m.title}}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col">
+        <strong>Future</strong>
+
+        <ul class="list-group">
+          <li *ngFor="let m of futureMilieuEvents" class="list-group-item">
+            <a [routerLink]="['/story', id, 'milieu-event', m.id]">{{m.title}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card" *ngIf="viewModel">
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <h2 class="card-title">
+          Non Player Characters
+        </h2>
+      </div>
+      <div class="col">
+        <button class="btn btn-primary float-sm-right" (click)="addNonPlayerCharacter()">Add</button>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <strong>Major</strong>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let n of majorNonPlayerCharacters">
+            <a [routerLink]="['/story', id, 'non-player-character', n.id]">{{n.name}}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col">
+        <strong>Minor</strong>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let n of minorNonPlayerCharacters">
+            <a [routerLink]="['/story', id, 'non-player-character', n.id]">{{n.name}}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col">
+        <strong>Monster</strong>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let n of monsterNonPlayerCharacters">
+            <a [routerLink]="['/story', id, 'non-player-character', n.id]">{{n.name}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card" *ngIf="viewModel">
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <h2 class="card-title">
+          Plot Points
+        </h2>
+      </div>
+      <div class="col">
+        <button class="btn btn-primary float-sm-right" (click)="addPlotPoint()">Add</button>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-6" *ngFor="let plotPoint of plotPoints">
+        <ul class="list-group mb-3">
+          <li class="list-group-item">
+            <strong>Act or Plot:</strong>
+            <a [routerLink]="['/story', id, 'plot-point', plotPoint.id]">{{plotPoint.title}}</a>
+          </li>
+          <li class="list-group-item" *ngIf='plotPoint.incitingIncident'>
+            <strong>Inciting Incident:</strong>
+            <a [routerLink]="['/story', id, 'turning-point', plotPoint.incitingIncident.id]">{{plotPoint.incitingIncident.title}}</a>
+          </li>
+          <li class="list-group-item" *ngIf='plotPoint.endPoint'>
+            <strong>Endpoint:</strong>
+            <a [routerLink]="['/story', id, 'turning-point', plotPoint.endPoint.id]">{{plotPoint.endPoint.title}}</a>
+          </li>
+          <li class="list-group-item" *ngFor="let turningPoint of plotPoint.turningPoints">
+            <strong>Turning Point:</strong>
+            <button class="btn btn-link">
+              {{ turningPoint.title }}
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

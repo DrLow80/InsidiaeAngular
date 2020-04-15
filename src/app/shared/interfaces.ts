@@ -1,3 +1,5 @@
+import { NonPlayerCharacterComponent } from '../story/non-player-character/non-player-character.component';
+
 export interface IAdventure {
   id: number;
   title: string;
@@ -8,141 +10,173 @@ export const ADVENTURES: IAdventure[] = [
   {
     id: 1,
     title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-    summary: 'Donec eget odio ac ex blandit semper ut vel magna'
+    summary: 'Donec eget odio ac ex blandit semper ut vel magna',
   },
   {
     id: 1,
     title: 'Pellentesque elementum nunc nec congue commodo',
-    summary: 'Mauris interdum eros quis mauris euismod finibus'
+    summary: 'Mauris interdum eros quis mauris euismod finibus',
   },
   {
     id: 1,
     title: 'Vestibulum nec lacus sed augue imperdiet pharetra',
-    summary: 'Maecenas a velit pulvinar, dictum quam sit amet, blandit purus'
+    summary: 'Maecenas a velit pulvinar, dictum quam sit amet, blandit purus',
   },
   {
     id: 1,
     title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-    summary: 'Donec eget odio ac ex blandit semper ut vel magna'
+    summary: 'Donec eget odio ac ex blandit semper ut vel magna',
   },
   {
     id: 1,
     title: 'Pellentesque elementum nunc nec congue commodo',
-    summary: 'Mauris interdum eros quis mauris euismod finibus'
+    summary: 'Mauris interdum eros quis mauris euismod finibus',
   },
   {
     id: 1,
     title: 'Vestibulum nec lacus sed augue imperdiet pharetra',
-    summary: 'Maecenas a velit pulvinar, dictum quam sit amet, blandit purus'
-  }
+    summary: 'Maecenas a velit pulvinar, dictum quam sit amet, blandit purus',
+  },
 ];
 
+export type NonPlayerCharacterType = 'major' | 'minor' | 'monster';
+
 export interface INonPlayerCharacter {
-  id: number;
+  id: string;
   name: string;
+  nonPlayerCharacterType: NonPlayerCharacterType;
 }
 
 export const NONPLAYERCHARACTERS: INonPlayerCharacter[] = [
   {
-    id: 1,
-    name: 'Lorem'
+    id: '1',
+    name: 'Lorem',
+    nonPlayerCharacterType: 'major',
   },
   {
-    id: 1,
-    name: 'Pellentesque'
+    id: '2',
+    name: 'Pellentesque',
+    nonPlayerCharacterType: 'major',
   },
   {
-    id: 1,
-    name: 'Vestibulum'
-  }
+    id: '3',
+    name: 'Vestibulum',
+    nonPlayerCharacterType: 'major',
+  },
 ];
 
 export interface IPlotPoint {
-  id: number;
+  id: string;
   title: string;
+  description: string;
   incitingIncident: ITurningPoint;
   endPoint: ITurningPoint;
   turningPoints: ITurningPoint[];
 }
 
 export interface ITurningPoint {
-  id: number;
+  id: string;
   title: string;
+  description: string;
 }
 
 export const PLOTPOINTS: IPlotPoint[] = [
   {
-    id: 1,
+    id: '1',
+    description: 'description',
+
     endPoint: {
-      id: 1,
-      title: 'Lorem'
+      id: '1',
+      title: 'Lorem',
+      description: 'description',
     },
     incitingIncident: {
-      id: 1,
-      title: 'Pellentesque'
+      id: '2',
+      title: 'Pellentesque',
+      description: 'description',
     },
     title: 'Vestibulum',
     turningPoints: [
       {
-        id: 1,
-        title: 'turningPoint1'
+        id: '2',
+        title: 'turningPoint1',
+        description: 'description',
       },
       {
-        id: 1,
-        title: 'turningPoint2'
+        id: '3',
+        title: 'turningPoint2',
+        description: 'description',
       },
       {
-        id: 1,
-        title: 'turningPoint3'
-      }
-    ]
+        id: '4',
+        title: 'turningPoint3',
+        description: 'description',
+      },
+    ],
   },
   {
-    id: 1,
+    id: '5',
+    description: 'description',
+
     endPoint: {
-      id: 1,
-      title: 'Proin'
+      id: '6',
+      title: 'Proin',
+      description: 'description',
     },
     incitingIncident: {
-      id: 1,
-      title: 'Duis'
+      id: '7',
+      title: 'Duis',
+      description: 'description',
     },
     title: 'Nunc',
     turningPoints: [
       {
-        id: 1,
-        title: 'turningPoint1'
+        id: '8',
+        title: 'turningPoint1',
+        description: 'description',
       },
       {
-        id: 1,
-        title: 'turningPoint2'
+        id: '9',
+        title: 'turningPoint2',
+        description: 'description',
       },
       {
-        id: 1,
-        title: 'turningPoint3'
-      }
-    ]
-  }
+        id: '10',
+        title: 'turningPoint3',
+        description: 'description',
+      },
+    ],
+  },
 ];
 
+export type MilieuEventType = 'past' | 'present' | 'future';
+
 export interface IMilieuEvent {
-  id: number;
+  id: string;
   title: string;
+  eventType: MilieuEventType;
+  description: string;
 }
 
 export const MILIEUEVENTS: IMilieuEvent[] = [
   {
-    id: 1,
-    title: 'Nulla'
+    id: '1',
+    title: 'Nulla',
+    eventType: 'past',
+    description: 'description',
   },
   {
-    id: 2,
-    title: 'Donec'
+    id: '2',
+    title: 'Donec',
+    eventType: 'past',
+    description: 'description',
   },
   {
-    id: 3,
-    title: 'Aliquam'
-  }
+    id: '3',
+    title: 'Aliquam',
+    eventType: 'past',
+    description: 'description',
+  },
 ];
 
 export interface IEditAdventureVeiwModel {
@@ -178,7 +212,7 @@ export const DEFAULTEDITADVENTUREVIEWMODEL: IEditAdventureVeiwModel = {
   plotPoints: PLOTPOINTS,
   presentMilieuEvents: MILIEUEVENTS,
   theme: 'theme',
-  title: 'Lorem ipsum'
+  title: 'Lorem ipsum',
 };
 
 export interface IEditMilieuEventViewModel {
@@ -192,5 +226,5 @@ export const DEFAULTEDITMILIEUEVENTVIEWMODEL: IEditMilieuEventViewModel = {
   id: 0,
   title: 'title',
   description: 'description',
-  type: 'present'
+  type: 'present',
 };

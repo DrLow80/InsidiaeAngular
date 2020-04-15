@@ -1,0 +1,100 @@
+<form (ngSubmit)="submit()" class="mb-3">
+    <div class="form-group">
+        <label for="title">Title</label>
+
+        <input
+            type="text"
+            class="form-control"
+            id="title"
+            name="title"
+            placeholder="Title"
+            [(ngModel)]="title"
+            />
+    </div>
+
+    <div class="form-group">
+        <label for="description">Description</label>
+
+        <input
+            type="text"
+            class="form-control"
+            id="description"
+            name="description"
+            placeholder="Description"
+            [(ngModel)]="description"
+            />
+    </div>
+
+    <button class="btn btn-primary" type="submit">Save</button>
+</form>
+
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                <h2>Inciting Event</h2>
+            </div>
+
+            <div class="col">
+                <button *ngIf="!incitingIncident" class="btn btn-primary float-sm-right" (click)="addIncitingIncident()">
+                    Add
+                </button>
+            </div>
+        </div>
+
+        <div *ngIf="incitingIncident">
+            <a href="">{{ incitingIncident.title }}</a>
+
+            <p>
+                {{ incitingIncident.description }}
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                <h2>End Point</h2>
+            </div>
+
+            <div class="col">
+                <button *ngIf="!endPoint" class="btn btn-primary float-sm-right" (click)="addEndPoint()">
+                    Add
+                </button>
+            </div>
+        </div>
+
+        <div *ngIf="endPoint">
+            <a href="">{{ endPoint.title }}</a>
+
+            <p>
+                {{ endPoint.description }}
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                <h2>Turning Points</h2>
+            </div>
+            <div class="col">
+                <button class="btn btn-primary float-sm-right" (click)="addTurningPoint()">Add</button>
+            </div>
+        </div>
+
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let turningPoint of turningPoints">
+                <a>{{ turningPoint.title }}</a>
+
+                <p>
+                    {{ turningPoint.description }}
+                </p>
+            </li>
+        </ul>
+    </div>
+</div>
