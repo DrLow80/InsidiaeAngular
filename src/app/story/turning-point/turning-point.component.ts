@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ITurningPoint } from 'src/app/shared/interfaces';
+import { ActivatedRoute, Router } from '@angular/router';
+import { StoryService } from '../shared/story.service';
+import { combineLatest } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { ITurningPoint } from '../shared/interfaces';
 
 @Component({
   selector: 'app-turning-point',
@@ -9,15 +13,27 @@ import { ITurningPoint } from 'src/app/shared/interfaces';
 export class TurningPointComponent implements OnInit {
   storyId = '';
   plotPointId = '';
-  viewModel: ITurningPoint = {
-    description: 'description',
-    id: 'id',
-    title: 'title',
-  };
+  viewModel: ITurningPoint;
 
-  constructor() {}
+  constructor(
+    private route: ActivatedRoute,
+    private service: StoryService,
+    private router: Router
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    combineLatest(this.route.parent.params, this.route.params)
+      .pipe(map((results) => ({ ...results[0], ...results[1] })))
+      .subscribe((x) => {
+        this.storyId = x.id;
+
+        this.plotPointId = x.pid;
+
+        this.service.loadTurningPoint(x.tid).subscribe((n) => {
+          this.viewModel = n;
+        });
+      });
+  }
 
   get description(): string {
     return this.viewModel.description;

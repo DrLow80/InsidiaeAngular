@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { IGenericRepository } from './interfaces';
-import { INonPlayerCharacter } from 'src/app/shared/interfaces';
+import { IGenericRepository, INonPlayerCharacter } from './interfaces';
 
 @Injectable({
   providedIn: 'root',
 })
-export class NonPlayerCharacterRepositoryService implements IGenericRepository<INonPlayerCharacter> {
+export class NonPlayerCharacterRepositoryService
+  implements IGenericRepository<INonPlayerCharacter> {
   data: INonPlayerCharacter[] = [];
 
   constructor() {}

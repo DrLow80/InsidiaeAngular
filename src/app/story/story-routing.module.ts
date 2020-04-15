@@ -27,9 +27,10 @@ const routes: Routes = [
       {
         path: 'plot-point/:pid',
         component: PlotPointComponent,
-        children: [
-          { path: 'turning-point/:tid', component: TurningPointComponent },
-        ],
+      },
+      {
+        path: 'plot-point/:pid/turning-point/:tid',
+        component: TurningPointComponent,
       },
     ],
   },

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ITurningPoint, IPlotPoint } from 'src/app/shared/interfaces';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StoryService } from '../shared/story.service';
 import { combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { IPlotPoint, ITurningPoint } from '../shared/interfaces';
 
 @Component({
   selector: 'app-plot-point',
@@ -25,8 +25,6 @@ export class PlotPointComponent implements OnInit {
     combineLatest(this.route.parent.params, this.route.params)
       .pipe(map((results) => ({ ...results[0], ...results[1] })))
       .subscribe((x) => {
-        console.log(JSON.stringify(x));
-
         this.storyId = x.id;
 
         this.service.loadPlotPoint(x.pid).subscribe((n) => {
@@ -67,9 +65,42 @@ export class PlotPointComponent implements OnInit {
     this.router.navigate(['/story', this.storyId, 'edit']);
   }
 
-  addIncitingEvent() {}
+  addIncitingIncident() {
+    const result = this.service.addIncitingIncident(this.viewModel);
 
-  addTurningPoint() {}
+    this.router.navigate([
+      'story',
+      this.storyId,
+      'plot-point',
+      this.viewModel.id,
+      'turning-point',
+      result.id,
+    ]);
+  }
 
-  addEndPoint() {}
+  addTurningPoint() {
+    const result = this.service.createTurningPoint(this.viewModel);
+
+    this.router.navigate([
+      '/story',
+      this.storyId,
+      'plot-point',
+      this.viewModel.id,
+      'turning-point',
+      result.id,
+    ]);
+  }
+
+  addEndPoint() {
+    const result = this.service.addEndPoint(this.viewModel);
+
+    this.router.navigate([
+      '/story',
+      this.storyId,
+      'plot-point',
+      this.viewModel.id,
+      'turning-point',
+      result.id,
+    ]);
+  }
 }

@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { IGenericRepository } from './interfaces';
-import { IPlotPoint } from 'src/app/shared/interfaces';
+import { IGenericRepository, IPlotPoint } from './interfaces';
 
 @Injectable({
   providedIn: 'root',
 })
-export class PlotPointRepositoryService implements IGenericRepository<IPlotPoint> {
+export class PlotPointRepositoryService
+  implements IGenericRepository<IPlotPoint> {
   data: IPlotPoint[] = [];
 
   constructor() {}

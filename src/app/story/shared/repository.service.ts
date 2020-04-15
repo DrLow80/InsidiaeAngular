@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { IGenericRepository, IStory } from './interfaces';
 import {
-  IAdventure,
+  IGenericRepository,
+  IStory,
   IMilieuEvent,
   INonPlayerCharacter,
   IPlotPoint,
   ITurningPoint,
-} from 'src/app/shared/interfaces';
+} from './interfaces';
 import { StoryRepositoryService } from './story-repository.service';
 import { MilieuEventRepositoryService } from './milieu-event-repository.service';
 import { NonPlayerCharacterRepositoryService } from './non-player-character-repository.service';

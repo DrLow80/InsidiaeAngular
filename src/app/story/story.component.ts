@@ -21,10 +21,12 @@ export class StoryComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       const id = params.id;
 
-      console.log(id);
-
       this.service.load(id).subscribe((x) => {
-        this.viewModel = x;
+        if (!!x) {
+          this.viewModel = x;
+        } else {
+          this.router.navigate(['/']);
+        }
       });
     });
   }

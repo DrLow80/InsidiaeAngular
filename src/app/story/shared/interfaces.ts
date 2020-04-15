@@ -1,10 +1,10 @@
-import {
-  IMilieuEvent,
-  MilieuEventType,
-  INonPlayerCharacter,
-  NonPlayerCharacterType,
-  IPlotPoint,
-} from 'src/app/shared/interfaces';
+// import {
+//   IMilieuEvent,
+//   MilieuEventType,
+//   INonPlayerCharacter,
+//   NonPlayerCharacterType,
+//   IPlotPoint,
+// } from 'src/app/shared/interfaces';
 
 export interface IStory {
   id: string;
@@ -165,4 +165,36 @@ export interface IGenericRepository<T> {
   update(obj: T): void;
   delete(id: any): void;
   save(): void;
+}
+
+export interface ITurningPoint {
+  description: string;
+  id: string;
+  title: string;
+}
+
+export interface IPlotPoint {
+  description: string;
+  id: string;
+  title: string;
+  incitingIncident: ITurningPoint;
+  endPoint: ITurningPoint;
+  turningPoints: ITurningPoint[];
+}
+
+export type MilieuEventType = 'past' | 'present' | 'future';
+
+export interface IMilieuEvent {
+  id: string;
+  title: string;
+  eventType: MilieuEventType;
+  description: string;
+}
+
+export type NonPlayerCharacterType = 'major' | 'minor' | 'monster';
+
+export interface INonPlayerCharacter {
+  id: string;
+  name: string;
+  nonPlayerCharacterType: NonPlayerCharacterType;
 }

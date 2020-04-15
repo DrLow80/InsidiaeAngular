@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { IStory, EditStoryViewModel } from './interfaces';
-import { StoryRepositoryService } from './story-repository.service';
-import { Guid } from 'guid-typescript';
 import {
+  IStory,
+  EditStoryViewModel,
   IMilieuEvent,
   INonPlayerCharacter,
   IPlotPoint,
   ITurningPoint,
-} from 'src/app/shared/interfaces';
+} from './interfaces';
+import { Guid } from 'guid-typescript';
 import { RepositoryService } from './repository.service';
 
 @Injectable({
@@ -25,6 +25,10 @@ export class StoryService {
 
   load(id: string): Observable<EditStoryViewModel> {
     const story = this.repositoryService.story.getById(id);
+
+    if (story === null) {
+      return of(null);
+    }
 
     const result = new EditStoryViewModel(story);
 
@@ -127,5 +131,39 @@ export class StoryService {
     plotPoint.turningPoints.push(result);
 
     return result;
+  }
+
+  addIncitingIncident(viewModel: IPlotPoint): ITurningPoint {
+    const result: ITurningPoint = {
+      description: 'description',
+      id: Guid.create().toString(),
+      title: 'title',
+    };
+
+    this.repositoryService.turningPoint.insert(result);
+
+    viewModel.incitingIncident = result;
+
+    return result;
+  }
+
+  addEndPoint(viewModel: IPlotPoint): ITurningPoint {
+    const result: ITurningPoint = {
+      description: 'description',
+      id: Guid.create().toString(),
+      title: 'title',
+    };
+
+    this.repositoryService.turningPoint.insert(result);
+
+    viewModel.endPoint = result;
+
+    return result;
+  }
+
+  loadTurningPoint(id: string): Observable<ITurningPoint> {
+    const result = this.repositoryService.turningPoint.getById(id);
+
+    return of(result);
   }
 }

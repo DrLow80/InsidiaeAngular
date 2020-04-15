@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { StoryService } from '../shared/story.service';
-import { EditStoryViewModel } from '../shared/interfaces';
 import {
+  EditStoryViewModel,
   IMilieuEvent,
   INonPlayerCharacter,
   IPlotPoint,
-} from 'src/app/shared/interfaces';
+} from '../shared/interfaces';
 
 @Component({
   selector: 'app-story-edit',

@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { IGenericRepository } from './interfaces';
-import { IMilieuEvent } from 'src/app/shared/interfaces';
+import { IGenericRepository, IMilieuEvent } from './interfaces';
 
 @Injectable({
   providedIn: 'root',
 })
-export class MilieuEventRepositoryService implements IGenericRepository<IMilieuEvent> {
+export class MilieuEventRepositoryService
+  implements IGenericRepository<IMilieuEvent> {
   data: IMilieuEvent[] = [];
 
   constructor() {}

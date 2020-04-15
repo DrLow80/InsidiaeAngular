@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { IMilieuEvent, MilieuEventType } from 'src/app/shared/interfaces';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StoryService } from '../shared/story.service';
 import { combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { IMilieuEvent, MilieuEventType } from '../shared/interfaces';
 
 @Component({
   selector: 'app-milieu-event',
@@ -12,15 +12,13 @@ import { map } from 'rxjs/operators';
 })
 export class MilieuEventComponent implements OnInit {
   storyId = '';
+  viewModel: IMilieuEvent;
 
-  viewModel: IMilieuEvent = {
-    description: 'description',
-    eventType: 'future',
-    id: 'id',
-    title: 'title',
-  };
-
-  constructor(private route: ActivatedRoute, private service: StoryService, private router: Router) {}
+  constructor(
+    private route: ActivatedRoute,
+    private service: StoryService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     combineLatest(this.route.parent.params, this.route.params)

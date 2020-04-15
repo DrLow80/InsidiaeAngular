@@ -43,7 +43,9 @@
         </div>
 
         <div *ngIf="incitingIncident">
-            <a href="">{{ incitingIncident.title }}</a>
+            <a [routerLink]="['/story', storyId, 'plot-point', viewModel.id, 'turning-point', viewModel.incitingIncident.id]">
+                {{ incitingIncident.title }}
+            </a>
 
             <p>
                 {{ incitingIncident.description }}
@@ -67,7 +69,9 @@
         </div>
 
         <div *ngIf="endPoint">
-            <a href="">{{ endPoint.title }}</a>
+            <a [routerLink]="['/story', storyId, 'plot-point', viewModel.id, 'turning-point', viewModel.endPoint.id]">
+                {{ endPoint.title }}
+            </a>
 
             <p>
                 {{ endPoint.description }}
@@ -89,7 +93,9 @@
 
         <ul class="list-group">
             <li class="list-group-item" *ngFor="let turningPoint of turningPoints">
-                <a>{{ turningPoint.title }}</a>
+                <a [routerLink]="['/story', storyId, 'plot-point', viewModel.id, 'turning-point', turningPoint.id]">
+                    {{ turningPoint.title }}
+                </a>
 
                 <p>
                     {{ turningPoint.description }}

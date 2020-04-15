@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { NonPlayerCharacterType, INonPlayerCharacter } from 'src/app/shared/interfaces';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StoryService } from '../shared/story.service';
 import { combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
+import {
+  INonPlayerCharacter,
+  NonPlayerCharacterType,
+} from '../shared/interfaces';
 
 @Component({
   selector: 'app-non-player-character',
@@ -19,7 +22,11 @@ export class NonPlayerCharacterComponent implements OnInit {
     nonPlayerCharacterType: 'major',
   };
 
-  constructor(private route: ActivatedRoute, private service: StoryService, private router: Router) {}
+  constructor(
+    private route: ActivatedRoute,
+    private service: StoryService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     combineLatest(this.route.parent.params, this.route.params)
